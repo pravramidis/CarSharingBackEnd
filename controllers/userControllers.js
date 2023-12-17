@@ -1,4 +1,4 @@
-const User = require('../models/Post');
+const User = require('../models/User');
 
 exports.createUser = async (req, res, next) => {
 	try {
@@ -6,8 +6,13 @@ exports.createUser = async (req, res, next) => {
 		let user = new User(Username, Password);
 	
 		user = await user.save();
-		
-		res.status(201).json({ message: "User created"});
+		let response = user.response;
+		if(response  == "User already exists") {
+			res.status(401).json({ message: "User already exists"});
+		}
+		else {
+			res.status(201).json({ message: "User created"});
+		}
 	}
 	catch (error) {
 		console.log(error);
@@ -22,9 +27,17 @@ exports.authenticateUser = async (req, res , next) => {
 		console.log(Password);
 		const [user, _] = await User.authenticate(Username, Password);
 
-		console.log(user[0]);
+		if(!user || Object.keys(user).length == 0) {
 
-		res.status(200).json({user: user[0]});
+			res.status(200).json({user: 'Fail'});
+		}
+		else if (Object.keys(user).length != 0) {
+			res.status(200).json({user: 'Success'});
+		}
+		else {
+			res.status(500).json({error: 'Failed user request'});
+		}
+
 	} 
 	catch (error) {
 		console.log(error);
