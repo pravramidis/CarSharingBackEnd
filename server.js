@@ -8,6 +8,7 @@ app.use(express.json()); // parse json bodies in the request object
 
 // Redirect requests to endpoint starting with /posts to postRoutes.js
 app.use("/users", require("./routes/userRoutes"));
+//app.use("/vehicles", require("./routes/vehiclesRoutes"));
 
 // Global Error Handler. IMPORTANT function params MUST start with err
 app.use((err, req, res, next) => {
