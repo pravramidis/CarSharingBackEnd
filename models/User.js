@@ -1,13 +1,14 @@
 const db = require('../config/db');
 
 class User {
-	constructor(user, password, name, phoneNumber, licenseId, date) {
+	constructor(user, password, name, phoneNumber, licenseId, date, email) {
 		this.user = user;
 		this.password = password;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.licenseId = licenseId;
 		this.date = date;
+		this.email = email;
 	}
 
 	async save() {
@@ -18,8 +19,8 @@ class User {
 			return{response: 'User already exists'};
 		}
 
-		let insertSql = `INSERT INTO user (Username, Password, Date_of_birth, Phone_number, Full_name, License_id) 
-		VALUES ('${this.user}' , '${this.password}',  '${this.date}', '${this.phoneNumber}','${this.name}','${this.licenseId}')`;
+		let insertSql = `INSERT INTO user (Username, Password, Date_of_birth, Phone_number, Full_name, License_id, Email) 
+		VALUES ('${this.user}' , '${this.password}',  '${this.date}', '${this.phoneNumber}','${this.name}','${this.licenseId}', '${this.email}')`;
 
 		const newUser = await db.execute(insertSql);
 
