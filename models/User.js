@@ -34,7 +34,7 @@ class User {
 	}
 
 	static getInfo(username) {
-		let sql = `Select * from user where Username = '${username}`;
+		let sql = `Select * from user where Username = '${username}'`;
 
 		return db.execute(sql,[username]);
 	}
