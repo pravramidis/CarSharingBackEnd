@@ -33,7 +33,7 @@ CREATE TABLE USER (
 	Password	VARCHAR(20),
 	Full_Name	VARCHAR(30),
 	License_id	VARCHAR(10),
-	Email 		VARCHAR(30)
+	Email 		VARCHAR(30),
 PRIMARY KEY (Username) );
 
 CREATE TABLE BOOKS ( 
