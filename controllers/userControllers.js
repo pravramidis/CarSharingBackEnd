@@ -67,3 +67,25 @@ exports.getUserInfo = async (req, res, next) => {
 		res.status(500).json({ message: "Internal server error" });
 	}
 }
+
+exports.updateUser = async (req, res, next) => {
+	try {
+		let {oldUsername, Password, name, date, licenseId, phoneNumber, email} = req.body;
+
+		let user = new User(Username, Password, name, phoneNumber, licenseId, date, email);
+	
+		user = await user.update(oldUsername);
+		let response = user.response;
+		console.log("new user");
+		if(response  == "User already exists") {
+			res.status(201).json({ message: "User already exists"});
+		}
+		else {
+			res.status(201).json({ message: "User created"});
+		}
+	}
+	catch (error) {
+		console.log(error);
+		next(error);
+	}
+}
