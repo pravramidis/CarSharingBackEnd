@@ -15,6 +15,19 @@ class vehicle {
         this.y = y;
 	}
 
+	static getCoordinates() {
+		let sql = `Select Plate_number, Brand, Model, X_Coordinates, Y_Coordinates from VEHICLE `;
+
+		return db.execute(sql);
+	}
+
+	static getMinutePrices() {
+		let sql = `Select FK1_Plate_number, Price from COSTS where FK2_Type = "Minute" `;
+
+		return db.execute(sql);
+	}
+
+
     
 
 }
