@@ -15,4 +15,4 @@ VAlUES (42.361396, 32.954080, TRUE, 5, TRUE,"Toyota", "Yarris", "Yellow", "Hybri
 
 
 Insert into VEHICLE (X_Coordinates,	Y_Coordinates,Available,Passenger_capacity,	Gearbox,Brand,Color,Model,Type,	Fuel_Type,Plate_number,FK1_Address)
-VAlUES (55.375789, 7.960016, TRUE, 9, TRUE, "Ford", "Grey", "Focus", "City", "Diesel", WM8878", "Volos");
+VAlUES (55.375789, 7.960016, TRUE, 9, TRUE, "Ford", "Grey", "Focus", "City", "Diesel","WM8878", "Volos");

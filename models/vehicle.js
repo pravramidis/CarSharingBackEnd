@@ -27,6 +27,18 @@ class vehicle {
 		return db.execute(sql);
 	}
 
+	static getCarInfo(plate) {
+		let sql = `Select * from vehicles where Plate_number = '${plate}'`
+
+		return db.execute(sql);
+	}
+
+	static getFilters(request) {
+		let sql = `Select distinct ${request} from vehicle`
+
+		return db.execute(sql);
+	}
+
 
     
 
