@@ -43,7 +43,7 @@ class User {
 		let checkDup = `SELECT COUNT(*) as count FROM user WHERE Username = '${this.user}'`;
 		const [result] = await db.execute(checkDup);
 		
-		if (result[0].count > 0) {
+		if (result[0].count > 0 && oldUsername != this.user) {
 			return{response: 'User already exists'};
 		}
 
