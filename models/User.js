@@ -32,6 +32,12 @@ class User {
 
 		return db.execute(sql);
 	}
+
+	static getInfo(username) {
+		let sql = `Select * from user where Username = '${username}`;
+
+		return db.execute(sql,[username]);
+	}
 }
 
 module.exports = User;

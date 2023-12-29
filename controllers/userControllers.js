@@ -47,3 +47,23 @@ exports.authenticateUser = async (req, res , next) => {
 		next(error);
 	}
 }
+
+exports.getUserInfo = async (req, res, next) => {
+	let { Username } = req.body;
+	console.log(Username);
+
+	try {
+		const [rows, _] = await User.getInfo(Username);
+		console.log("user getInfo", rows);
+
+		// Assuming you're expecting one user or none
+		if (rows.length > 0) {
+			res.json(rows[0]); // Send the user data as JSON
+		} else {
+			res.status(404).json({ message: "User not found" });
+		}
+	} catch (error) {
+		console.error("Error in getUserInfo:", error);
+		res.status(500).json({ message: "Internal server error" });
+	}
+}
