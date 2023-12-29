@@ -70,7 +70,7 @@ exports.getUserInfo = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
 	try {
-		let {oldUsername, Password, name, date, licenseId, phoneNumber, email} = req.body;
+		let {oldUsername,Username, Password, name, date, licenseId, phoneNumber, email} = req.body;
 
 		let user = new User(Username, Password, name, phoneNumber, licenseId, date, email);
 	

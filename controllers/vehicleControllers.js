@@ -60,17 +60,59 @@ exports.getFilters = async (req, res, next) => {
     let { request } = req.body;
     console.log(request);
 
-
-    
     try {
-        const[row, _] = await vehicle.getFilters(request);
+        const [row, _] = await vehicle.getFilters(request);
         console.log(row);
-        res.status(200).json(row);
+
+        const newJsonArray = row.map(valueArray => {
+            const newObj = {};
+            valueArray.forEach((value, index) => {
+                const key = row[index].name; // Use 'row' instead of 'jsonArray'
+                newObj[key] = 'False';
+            });
+            return newObj;
+        });
+
+        console.log(newJsonArray);
+
+        // Send the newJsonArray as the response
+        res.status(200).json(newJsonArray);
 
     } catch (error) {
-            
-		console.error("Error in getFilters:", error);
+        console.error("Error in getFilters:", error);
+        // Handle the error and send an appropriate response
+        res.status(500).json({ error: "Internal Server Error" });
     }
+};
+
+// exports.getFilters = async (req, res, next) => {
+//     let { request } = req.body;
+//     console.log(request);
+
 
     
-}
+//     try {
+//         const[row, _] = await vehicle.getFilters(request);
+//         console.log(row);
+
+//         const newJsonArray = row.map(valueArray => {
+//             const newObj = {};
+//             valueArray.forEach((row, index) => {
+//               const key = jsonArray[index].name;
+//               newObj[key] = 'False';
+//             });
+//             return newObj;
+//           });
+          
+//           console.log(newJsonArray);
+
+
+//         res.status(200).json();
+
+//     } catch (error) {
+            
+// 		console.error("Error in getFilters:", error);
+//     }
+
+    
+// }
