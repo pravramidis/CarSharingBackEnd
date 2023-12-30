@@ -21,8 +21,8 @@ class vehicle {
 		return db.execute(sql);
 	}
 
-	static getMinutePrices() {
-		let sql = `Select FK1_Plate_number, Price from COSTS where FK2_Type = "Minute" `;
+	static getPrice(plate, rate) {
+		let sql = `select price from costs where FK1_Plate_number = ${plate} and FK2_Type = ${rate}`
 
 		return db.execute(sql);
 	}
@@ -118,6 +118,7 @@ class vehicle {
 			return db.execute(sql);
 		}
 		sql += query;
+		sql += ' and available = 1'
 		
 		console.log(sql);
 		return db.execute(sql);

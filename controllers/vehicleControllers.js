@@ -4,9 +4,10 @@ exports.getVehicleCoordinates = async (req, res , next) => {
     try {
         const [vehicle, _] = await vehicle.getCoordinates();
         console.log("vehicle coordinates");
+        console.log(vehicle);
 
         if(!vehicle) {
-			res.status(200).json({user: 'Fail'});
+			res.status(200).json(vehicle);
 		}
 		
 
@@ -18,13 +19,13 @@ exports.getVehicleCoordinates = async (req, res , next) => {
     }
 }
 
-exports.getMinPrices = async (req, res , next) => {
+exports.getPrice = async (req, res , next) => {
     try {
-        const [vehicle, _] = await vehicle.getMinutePrices();
-        console.log("vehicle coordinates");
+        const [price, _] = await vehicle.getPrice();
+        console.log(price);
 
-        if(!vehicle) {
-			res.status(200).json({user: 'Fail'});
+        if(!price) {
+			res.status(200).json(price);
 		}
 		
 
