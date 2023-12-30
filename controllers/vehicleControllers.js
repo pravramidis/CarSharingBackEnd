@@ -96,3 +96,11 @@ exports.getFilters = async (req, res, next) => {
 
     
 }
+
+exports.getRelevantCars = async (req, res, next) => {
+    let { request } = req.body;
+    console.log("filters");
+    console.log(request);
+
+    const[car, _] = await vehicle.getRelevantCars(request);
+}

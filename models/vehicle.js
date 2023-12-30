@@ -39,7 +39,14 @@ class vehicle {
 		return db.execute(sql);
 	}
 
+	static getRelevantCars(request) {
+		
+		
 
+
+
+		// return db.execute(sql);
+	}
     
 
 }
