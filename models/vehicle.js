@@ -22,7 +22,7 @@ class vehicle {
 	}
 
 	static getPrice(plate, rate) {
-		let sql = `select price from costs where FK1_Plate_number = ${plate} and FK2_Type = ${rate}`
+		let sql = `select price from costs where FK1_Plate_number = '${plate}' and FK2_Type = '${rate}'`
 
 		return db.execute(sql);
 	}

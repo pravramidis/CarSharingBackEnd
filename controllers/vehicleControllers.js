@@ -104,6 +104,19 @@ exports.getRelevantCars = async (req, res, next) => {
     console.log(request);
 
     const[cars, _] = await vehicle.getRelevantCars(request);
+    console.log(cars);
+
+    for (i = 0; i < cars.length; i++) {
+        let object = cars[i];
+        let value = object["Plate_number"];
+        console.log(value);
+        const [cost,_] = await vehicle.getPrice(value, "Minute");
+        console.log(cost[0]);
+        object.Price = cost[0].price;
+        console.log(cars);
+        
+    }
+    
 
     res.status(200).json({cars});
 }
