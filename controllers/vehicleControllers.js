@@ -102,5 +102,7 @@ exports.getRelevantCars = async (req, res, next) => {
     console.log("filters");
     console.log(request);
 
-    const[car, _] = await vehicle.getRelevantCars(request);
+    const[cars, _] = await vehicle.getRelevantCars(request);
+
+    res.status(200).json({cars});
 }
