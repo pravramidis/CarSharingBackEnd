@@ -56,6 +56,7 @@ class vehicle {
 		let isFirstAttr = 1;
 		let flag = 0;
 		let flagAddSomething = 0;
+		let isFirstInLoop = 1;
 
 		let query = '';
 
@@ -80,7 +81,8 @@ class vehicle {
 			flagAddSomething = 0;
 			array.forEach(obj => {
 				const keys = Object.keys(obj);
-				if (isFirstAttr == 1 && query != 'where ') {
+				// console.log(query[query.length-1]);
+				if (isFirstAttr == 1 && query != 'where ' && isFirstInLoop == 0) {
 					isFirstAttr = 0;
 					query += ' and ';
 					flag = 1;
@@ -108,6 +110,7 @@ class vehicle {
 				});
 			});
 			if (flagAddSomething == 1) {
+				isFirstInLoop = 0;
 				query += ')'
 			}
 		}
