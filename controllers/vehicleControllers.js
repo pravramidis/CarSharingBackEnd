@@ -41,13 +41,27 @@ exports.getCarInfo = async (req,res,next) => {
     let { plate } = req.body;
 	console.log(plate);
 
-	try {
-		const [rows, _] = await vehicle.getInfo(plate);
-		console.log("user getInfo", rows);
+    
 
-		// Assuming you're expecting one car or none
-		if (rows.length > 0) {
-			res.json(rows[0]); // Send the car data as JSON
+	try {
+		const [car, _] = await vehicle.getCarInfo(plate);
+		console.log("get Car info", car[0]);
+
+        let object = car[0];
+        const [cost_min,] = await vehicle.getPrice(plate, "Minute");
+        const [cost_hourly,] = await vehicle.getPrice(plate, "Hourly");
+        const [cost_daily,] = await vehicle.getPrice(plate, "Daily");
+        console.log(cost_min[0]);
+        console.log(cost_hourly[0]);
+        console.log(cost_daily[0]);
+        object.PriceMin = cost_min[0].price;
+        object.PriceHourly = cost_hourly[0].price;
+        object.PriceDaily = cost_daily[0].price;
+
+        console.log(object);
+
+		if (car.length > 0) {
+			res.json(object); // Send the car data as JSON
 		} else {
 			res.status(404).json({ message: "Car not found" });
 		}

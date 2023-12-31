@@ -28,7 +28,7 @@ class vehicle {
 	}
 
 	static getCarInfo(plate) {
-		let sql = `Select * from vehicles where Plate_number = '${plate}'`
+		let sql = `Select * from vehicle where Plate_number = '${plate}'`
 
 		return db.execute(sql);
 	}
