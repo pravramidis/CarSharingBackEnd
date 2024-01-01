@@ -38,30 +38,33 @@ exports.getPrice = async (req, res , next) => {
 }
 
 exports.getCarInfo = async (req,res,next) => {
-    let { plate } = req.body;
-	console.log(plate);
+    let { Plate_number } = req.body;
+	console.log(Plate_number);
 
     
 
 	try {
-		const [car, _] = await vehicle.getCarInfo(plate);
-		console.log("get Car info", car[0]);
+		const [car, _] = await vehicle.getCarInfo(Plate_number);
+		console.log("get Car info", car);
 
-        let object = car[0];
-        const [cost_min,] = await vehicle.getPrice(plate, "Minute");
-        const [cost_hourly,] = await vehicle.getPrice(plate, "Hourly");
-        const [cost_daily,] = await vehicle.getPrice(plate, "Daily");
-        console.log(cost_min[0]);
-        console.log(cost_hourly[0]);
-        console.log(cost_daily[0]);
-        object.PriceMin = cost_min[0].price;
-        object.PriceHourly = cost_hourly[0].price;
-        object.PriceDaily = cost_daily[0].price;
-
-        console.log(object);
+        
 
 		if (car.length > 0) {
-			res.json(object); // Send the car data as JSON
+            let object = car[0];
+            const [cost_min,] = await vehicle.getPrice(Plate_number, "Minute");
+            const [cost_hourly,] = await vehicle.getPrice(Plate_number, "Hourly");
+            const [cost_daily,] = await vehicle.getPrice(Plate_number, "Daily");
+            console.log(cost_min[0]);
+            console.log(cost_hourly[0]);
+            console.log(cost_daily[0]);
+            object.PriceMin = cost_min[0].price;
+            object.PriceHourly = cost_hourly[0].price;
+            object.PriceDaily = cost_daily[0].price;
+
+            console.log(object);
+            res.json(object);
+
+			// res.json(car[0]); // Send the car data as JSON
 		} else {
 			res.status(404).json({ message: "Car not found" });
 		}
