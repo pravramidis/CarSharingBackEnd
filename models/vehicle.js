@@ -33,6 +33,7 @@ class vehicle {
 		return db.execute(sql,[plate]);
 	}
 
+
 	static getFilters(request) {
 		let sql = `Select distinct ${request} from vehicle`
 
