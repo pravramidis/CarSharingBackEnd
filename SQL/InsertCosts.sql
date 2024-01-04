@@ -62,7 +62,7 @@ VAlUES (120, "NON5445", "Daily");
 
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.4, "ITP2IPP2345345", "Minute");
+VAlUES (0.4, "IPP2345", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
 VAlUES (20, "IPP2345", "Hourly");
