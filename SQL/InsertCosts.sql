@@ -1,47 +1,110 @@
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.26, "ION8888", "Minute");
+VAlUES (0.2, "ION8888", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (12.99, "ION8888", "Hourly");
+VAlUES (10, "ION8888", "Hourly");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (33.98, "ION8888", "Daily");
+VAlUES (60, "ION8888", "Daily");
 
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.28, "GR8877", "Minute");
+VAlUES (0.22, "HII4588", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (13.99, "GR8877", "Hourly");
+VAlUES (11, "HII4588", "Hourly");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (34.90, "GR8877", "Daily");
+VAlUES (60, "HII4588", "Daily");
+
+
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.25, "KL8878", "Minute");
+VAlUES (0.19, "ITP2345", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (17, "KL8878", "Hourly");
+VAlUES (11, "ITP2345", "Hourly");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (37, "KL8878", "Daily");
+VAlUES (60, "ITP2345", "Daily");
+
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.28, "JK877", "Minute");
+VAlUES (0.19, "UPT3445", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (16, "JK877", "Hourly");
+VAlUES (11, "UPT3445", "Hourly");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (40, "JK877", "Daily");
+VAlUES (60, "UPT3445", "Daily");
+
+
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (0.2, "WM8878", "Minute");
+VAlUES (0.21, "OIP3345", "Minute");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (10, "WM8878", "Hourly");
+VAlUES (10.5, "OIP3345", "Hourly");
 
 Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
-VAlUES (25, "WM8878", "Daily");
+VAlUES (63, "OIP3345", "Daily");
+
+
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (3, "NON5445", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (150, "NON5445", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (900, "NON5445", "Daily");
+
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (0.4, "IPP2345", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (20, "IPP2345", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (120, "IPP2345", "Daily");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (0.4, "IHG8767", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (20, "IHG8767", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (120, "IHG8767", "Daily");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (0.19, "TTR6545", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (9.5, "TTR6545", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (57, "TTR6545", "Daily");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (0.19, "OPR4576", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (9.5, "OPR4576", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (57, "OPR4576", "Daily");
+
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (0.2, "TPG3245", "Minute");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (10, "TPG3245", "Hourly");
+
+Insert into COSTS (Price,FK1_Plate_number,FK2_Type)
+VAlUES (25, "TPG3245", "Daily");
 
 
