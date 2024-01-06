@@ -15,6 +15,14 @@ class vehicle {
         this.y = y;
 	}
 
+	static changeAvailability(plate, value) {
+		let sql = `update vehicle
+		set Available = '${value}'
+		where Plate_number='${plate}'`;
+
+		return db.execute(sql,[value, plate]);
+	}
+
 	static getCoordinates() {
 		let sql = `Select Plate_number, Brand, Model, X_Coordinates, Y_Coordinates, Color from VEHICLE where available = '1'`;
 
@@ -32,6 +40,7 @@ class vehicle {
 
 		return db.execute(sql,[plate]);
 	}
+
 
 	static getFilters(request) {
 		let sql = `Select distinct ${request} from vehicle`

@@ -1,5 +1,22 @@
 const vehicle = require('../models/vehicle');
 
+
+exports.changeAvailability = async (req, res,next) => {
+
+    try {
+        const { plate, value } = req.body; 
+
+        await vehicle.changeAvailability(plate, value);
+        console.log("change availability");
+        res.status(200).json({ message: 'Vehicle availability updated successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+    
+
+}
+
 exports.getVehicleCoordinates = async (req, res , next) => {
     try {
         const [cars, _] = await vehicle.getCoordinates();
