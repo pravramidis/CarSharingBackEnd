@@ -16,7 +16,7 @@ class vehicle {
 	}
 
 	static getCoordinates() {
-		let sql = `Select Plate_number, Brand, Model, X_Coordinates, Y_Coordinates from VEHICLE where available = '1'`;
+		let sql = `Select Plate_number, Brand, Model, X_Coordinates, Y_Coordinates, Color from VEHICLE where available = '1'`;
 
 		return db.execute(sql);
 	}
@@ -115,7 +115,7 @@ class vehicle {
 			}
 		}
 		
-		let sql = 'select Model, Brand, Plate_number, X_Coordinates, Y_Coordinates from vehicle ';
+		let sql = 'select Model, Brand, Plate_number, X_Coordinates, Y_Coordinates, Color from vehicle ';
 		if (query == 'where ') {
 			console.log(sql);
 			return db.execute(sql);

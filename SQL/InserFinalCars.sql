@@ -1,10 +1,10 @@
 Insert into  PARKING_LOCATION (Address) VAlUES ("Volos");
 
 Insert into VEHICLE (Y_Coordinates,	X_Coordinates,Available,Passenger_capacity,	Gearbox,Brand, Model, Color,Type,	Fuel_Type,Plate_number,FK1_Address)
-VAlUES (39.361049, 22.931768, TRUE, 5, TRUE, "Renault", "Captur","Grey","SUV", "Diesel", "ION8888", "Volos");
+VAlUES (39.361049, 22.931768, TRUE, 5, TRUE, "Renault", "Captur","Gray","SUV", "Diesel", "ION8888", "Volos");
 
 Insert into VEHICLE (Y_Coordinates,	X_Coordinates,Available,Passenger_capacity,	Gearbox,Brand, Model, Color,Type,	Fuel_Type,Plate_number,FK1_Address)
-VAlUES (39.363835, 22.940039, TRUE, 5, TRUE, "Renault", "Captur","Grey","SUV", "Gasoline", "HII4588", "Volos");
+VAlUES (39.363835, 22.940039, TRUE, 5, TRUE, "Renault", "Captur","Gray","SUV", "Gasoline", "HII4588", "Volos");
 
 Insert into VEHICLE (Y_Coordinates,	X_Coordinates,Available,Passenger_capacity,	Gearbox,Brand, Model, Color,Type,	Fuel_Type,Plate_number,FK1_Address)
 VAlUES (39.359617, 22.948588, TRUE, 5, TRUE, "Opel", "Mokka","Green","SUV", "Gasoline", "ITP2345", "Volos");
