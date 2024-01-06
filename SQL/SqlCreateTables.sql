@@ -38,13 +38,12 @@ PRIMARY KEY (Username) );
 
 CREATE TABLE BOOKS ( 
 	Price	DOUBLE PRECISION,
-	Start_timestamp	TIMESTAMP	NOT NULL,
-	End_timestamp	TIMESTAMP,
+	Payment_date	VARCHAR(30)	NOT NULL,
+	Trip_duration	VARCHAR(10),
 	FK1_Username	VARCHAR(30)	NOT NULL,
 	FK2_Plate_number	VARCHAR(10)	NOT NULL,
 	FK3_Type	VARCHAR(10)	NOT NULL,
-PRIMARY KEY (FK1_Username, FK2_Plate_number, FK3_Type),
-UNIQUE (Start_timestamp) );
+PRIMARY KEY (Payment_date, FK1_Username, FK2_Plate_number, FK3_Type) );
 
 CREATE TABLE Pre_Books ( 
 	Price	DOUBLE PRECISION,

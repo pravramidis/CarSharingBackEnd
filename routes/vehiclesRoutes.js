@@ -7,4 +7,5 @@ router.route("/price").post(vehicleControllers.getPrice);
 router.route("/carInfo").post(vehicleControllers.getCarInfo);
 router.route("/filters").post(vehicleControllers.getFilters);
 router.route("/search").post(vehicleControllers.getRelevantCars);
+router.route("/availability").post(vehicleControllers.changeAvailability);
 module.exports = router;
