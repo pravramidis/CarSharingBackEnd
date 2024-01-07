@@ -15,6 +15,14 @@ class vehicle {
         this.y = y;
 	}
 
+	static updateLocation(plate, x_coord, y_coord) {
+		let sql = `	UPDATE vehicle
+					SET X_Coordinates = ${x_coord}, Y_Coordinates = ${y_coord}
+					WHERE Plate_number = '${plate}';`
+
+		return db.execute(sql);
+	}
+
 	static changeAvailability(plate, value) {
 		let sql = `update vehicle
 		set Available = '${value}'
@@ -126,6 +134,7 @@ class vehicle {
 		
 		let sql = 'select Model, Brand, Plate_number, X_Coordinates, Y_Coordinates, Color from vehicle ';
 		if (query == 'where ') {
+			sql += ' where available = 1'
 			console.log(sql);
 			return db.execute(sql);
 		}

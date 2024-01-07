@@ -1,5 +1,22 @@
 const vehicle = require('../models/vehicle');
 
+exports.updateLocation = async (req, res, next) => {
+    console.log("Attempting to update location");
+    console.log(req.body);
+    try {
+        const { X_Coordinate , Y_Coordinate, Plate} = req.body;
+        console.log(req.body);
+
+        await vehicle.updateLocation(Plate, X_Coordinate, Y_Coordinate);
+
+        res.status(200).json({message: 'Success'});   } 
+    catch (error) {
+        console.log("i got an eror");
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
 
 exports.changeAvailability = async (req, res,next) => {
 
@@ -21,7 +38,7 @@ exports.getVehicleCoordinates = async (req, res , next) => {
     try {
         const [cars, _] = await vehicle.getCoordinates();
         console.log("vehicle coordinates");
-        console.log(cars);
+        // console.log(cars);
         for (i = 0; i < cars.length; i++) {
             let object = cars[i];
             let value = object["Plate_number"];
@@ -29,7 +46,7 @@ exports.getVehicleCoordinates = async (req, res , next) => {
             const [cost,_] = await vehicle.getPrice(value, "Minute");
             console.log(cost[0]);
             object.Price = cost[0].price;
-            console.log(cars);
+            // console.log(cars);
             
         }
         res.status(200).json({cars});

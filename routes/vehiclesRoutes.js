@@ -8,4 +8,5 @@ router.route("/carInfo").post(vehicleControllers.getCarInfo);
 router.route("/filters").post(vehicleControllers.getFilters);
 router.route("/search").post(vehicleControllers.getRelevantCars);
 router.route("/availability").post(vehicleControllers.changeAvailability);
+router.route("/updateLocation").post(vehicleControllers.updateLocation);
 module.exports = router;
