@@ -25,6 +25,12 @@ class History{
         // return {response: 'Booking inserted'};
     }
 
+    static getHistory(username) {
+        let sql = `Select * from books where FK1_Username= '${username}'`;
+
+        return db.execute(sql,[username]);
+    }
+
 }
 
 module.exports = History;
