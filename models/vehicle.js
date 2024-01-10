@@ -104,15 +104,14 @@ class vehicle {
 			flagAddSomething = 0;
 			array.forEach(obj => {
 				const keys = Object.keys(obj);
-				// console.log(query[query.length-1]);
-				if (isFirstAttr == 1 && query != 'where ' && isFirstInLoop == 0) {
-					isFirstAttr = 0;
-					query += ' and ';
-					flag = 1;
-				}
 				keys.forEach(key => {
 				  const value = obj[key];
 				  if (value == 'True') {
+					if (isFirstAttr == 1 && query != 'where ' && isFirstInLoop == 0) {
+						isFirstAttr = 0;
+						query += ' and ';
+						flag = 1;
+					}
 					flagAddSomething = 1;
 					if (flag != 1) {
 						query += ',';
