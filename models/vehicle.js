@@ -15,6 +15,12 @@ class vehicle {
         this.y = y;
 	}
 
+	static getMapLimits(City) {
+		let sql =  `Select * from parking_location where Address = '${City}'`
+
+		return db.execute(sql);
+	}
+
 	static updateLocation(plate, x_coord, y_coord) {
 		let sql = `	UPDATE vehicle
 					SET X_Coordinates = ${x_coord}, Y_Coordinates = ${y_coord}

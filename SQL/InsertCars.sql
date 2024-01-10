@@ -1,4 +1,5 @@
-Insert into  PARKING_LOCATION (Address) VAlUES ("Volos");
+Insert into  PARKING_LOCATION (Address, Penalty, Y_Coordinates_Bottom_Right, X_Coordinates_Bottom_Right, Y_Coordinates_Top_Left, X_Coordinates_Top_Left) 
+VAlUES ("Volos", 100, 39.346999, 22.977265, 39.386006, 22.907152);
 
 Insert into VEHICLE (X_Coordinates,	Y_Coordinates,Available,Passenger_capacity,	Gearbox,Brand,Color,Model,Type,	Fuel_Type,Plate_number,FK1_Address)
 VAlUES (39.375789, 22.960016, TRUE, 5, TRUE, "Renault", "CAPTUR","Grey","SUV", "Diesel", "ION8888", "Volos");

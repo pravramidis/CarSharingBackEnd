@@ -1,4 +1,24 @@
+const { response } = require('express');
 const vehicle = require('../models/vehicle');
+
+exports.getMapLimit = async (req, res, next) => {
+    try {
+        const { City } = req.body;
+        console.log(req.body);
+
+        const [limits,_] = await vehicle.getMapLimits(City);
+        const response = limits[0];
+        
+
+        console.log(response);
+        res.status(200).json({response});   
+    } 
+    catch (error) {
+        console.log("i got an eror");
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
 
 exports.updateLocation = async (req, res, next) => {
     console.log("Attempting to update location");
