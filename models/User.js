@@ -61,6 +61,12 @@ class User {
 
 		return {response: 'User updated'};
 	}
+
+	static deleteUser(username) {
+		let sql = `Delete from user where Username = '${username}'`;
+
+		return db.execute(sql);
+	}
 }
 
 module.exports = User;

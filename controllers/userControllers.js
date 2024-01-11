@@ -89,3 +89,18 @@ exports.updateUser = async (req, res, next) => {
 		next(error);
 	}
 }
+
+exports.deleteUserAcc =async(req, res, next) => {
+	try{
+		let {Username}=req.body;
+
+		const result = await User.deleteUser(Username);
+		return res.status(200).json({ message: "User deleted successfully." });
+		
+
+	}
+	catch (error){
+		console.error('Error deleting user:', error);
+    	return res.status(500).json({ message: "Internal server error." });
+	}
+}
