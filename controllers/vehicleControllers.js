@@ -129,7 +129,6 @@ exports.getCarInfo = async (req,res,next) => {
 
 exports.getFilters = async (req, res, next) => {
     let { request } = req.body;
-    console.log(request);
     let modRequest = request;
 
     console.log("Get filters");
@@ -144,7 +143,6 @@ exports.getFilters = async (req, res, next) => {
     
     try {
         const[row, _] = await vehicle.getFilters(modRequest);
-        console.log(row);
         const filters = [];
 
 
