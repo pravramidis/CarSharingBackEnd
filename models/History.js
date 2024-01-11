@@ -21,8 +21,6 @@ class History{
         } catch (error) {
             throw error;
         }
-        // const newHistory = await db.execute(insertSql);
-        // return {response: 'Booking inserted'};
     }
 
     static getHistory(username) {

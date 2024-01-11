@@ -14,7 +14,6 @@ exports.getMapLimit = async (req, res, next) => {
         res.status(200).json({response});   
     } 
     catch (error) {
-        console.log("i got an eror");
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -31,7 +30,6 @@ exports.updateLocation = async (req, res, next) => {
 
         res.status(200).json({message: 'Success'});   } 
     catch (error) {
-        console.log("i got an eror");
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -58,15 +56,12 @@ exports.getVehicleCoordinates = async (req, res , next) => {
     try {
         const [cars, _] = await vehicle.getCoordinates();
         console.log("vehicle coordinates");
-        // console.log(cars);
         for (i = 0; i < cars.length; i++) {
             let object = cars[i];
             let value = object["Plate_number"];
-            console.log(value);
             const [cost,_] = await vehicle.getPrice(value, "Minute");
             console.log(cost[0]);
             object.Price = cost[0].price;
-            // console.log(cars);
             
         }
         res.status(200).json({cars});
@@ -123,7 +118,6 @@ exports.getCarInfo = async (req,res,next) => {
             console.log(object);
             res.json(object);
 
-			// res.json(car[0]); // Send the car data as JSON
 		} else {
 			res.status(404).json({ message: "Car not found" });
 		}
@@ -138,6 +132,9 @@ exports.getFilters = async (req, res, next) => {
     console.log(request);
     let modRequest = request;
 
+    console.log("Get filters");
+
+    //Change to the appropriate format
     if (request == "Fuel Type") {
         modRequest = "Fuel_Type";
     }
@@ -154,15 +151,10 @@ exports.getFilters = async (req, res, next) => {
         for (i = 0; i < row.length; i++) {
             let object = row[i];
             let value = object[modRequest];
-            console.log(value);
             let newJsonObject = {[value]: 'false'};
-            console.log(newJsonObject);
             filters.push(newJsonObject);
         }
         const response = {[request]: filters};
-
-        console.log(response);
-
 
         res.status(200).json(response);
 
@@ -176,8 +168,7 @@ exports.getFilters = async (req, res, next) => {
 
 exports.getRelevantCars = async (req, res, next) => {
     let { request } = req.body;
-    console.log("filters");
-    console.log(request);
+    console.log("Get relevant cars");
 
     const[cars, _] = await vehicle.getRelevantCars(request);
     console.log(cars);
@@ -185,11 +176,8 @@ exports.getRelevantCars = async (req, res, next) => {
     for (i = 0; i < cars.length; i++) {
         let object = cars[i];
         let value = object["Plate_number"];
-        console.log(value);
         const [cost,_] = await vehicle.getPrice(value, "Minute");
-        console.log(cost[0]);
         object.Price = cost[0].price;
-        console.log(cars);
         
     }
     

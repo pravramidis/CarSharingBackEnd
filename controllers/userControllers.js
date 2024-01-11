@@ -8,7 +8,7 @@ exports.createUser = async (req, res, next) => {
 	
 		user = await user.save();
 		let response = user.response;
-		console.log("new user");
+		console.log("Created new user");
 		if(response  == "User already exists") {
 			res.status(201).json({ message: "User already exists"});
 		}
@@ -56,9 +56,9 @@ exports.getUserInfo = async (req, res, next) => {
 		const [rows, _] = await User.getInfo(Username);
 		console.log("user getInfo", rows);
 
-		// Assuming you're expecting one user or none
+		
 		if (rows.length > 0) {
-			res.json(rows[0]); // Send the user data as JSON
+			res.json(rows[0]);
 		} else {
 			res.status(404).json({ message: "User not found" });
 		}
@@ -76,7 +76,7 @@ exports.updateUser = async (req, res, next) => {
 	
 		user = await user.update(oldUsername);
 		let response = user.response;
-		console.log("new user");
+		console.log("Updated user");
 		if(response  == "User already exists") {
 			res.status(201).json({ message: "User already exists"});
 		}
@@ -93,6 +93,7 @@ exports.updateUser = async (req, res, next) => {
 exports.deleteUserAcc =async(req, res, next) => {
 	try{
 		let {Username}=req.body;
+		console.log("Deleting user account");
 
 		const result = await User.deleteUser(Username);
 		return res.status(200).json({ message: "User deleted successfully." });

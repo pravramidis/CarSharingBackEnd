@@ -16,7 +16,7 @@ class vehicle {
 	}
 
 	static getMapLimits(City) {
-		let sql =  `Select * from parking_location where Address = '${City}'`
+		let sql =  `Select * from City where City_Name = '${City}'`
 
 		return db.execute(sql);
 	}
@@ -62,9 +62,9 @@ class vehicle {
 		return db.execute(sql);
 	}
 
+	//This creates an sql query based on a json file
 	static getRelevantCars(request) {
 		let array = request['request']
-		console.log(array);
 
 		const filterCategories = [
 			"Type",
@@ -93,7 +93,6 @@ class vehicle {
 				currCategory = "Passenger_capacity"
 			}
 
-			console.log(array);
 			if (isFirstCat == 1) {
 				isFirstCat = 0;
 				query += 'where '
@@ -126,7 +125,6 @@ class vehicle {
 					else {
 						query += `'${key}'`;
 					}
-				  	console.log(query);
 				  }
 				});
 			});
@@ -139,12 +137,14 @@ class vehicle {
 		let sql = 'select Model, Brand, Plate_number, X_Coordinates, Y_Coordinates, Color from vehicle ';
 		if (query == 'where ') {
 			sql += ' where available = 1'
+			console.log("Final query based on the filters");
 			console.log(sql);
 			return db.execute(sql);
 		}
 		sql += query;
 		sql += ' and available = 1'
 		
+		console.log("Final query based on the filters");
 		console.log(sql);
 		return db.execute(sql);
 	}
