@@ -10,7 +10,6 @@ exports.getMapLimit = async (req, res, next) => {
         const response = limits[0];
         
 
-        console.log(response);
         res.status(200).json({response});   
     } 
     catch (error) {
@@ -60,7 +59,6 @@ exports.getVehicleCoordinates = async (req, res , next) => {
             let object = cars[i];
             let value = object["Plate_number"];
             const [cost,_] = await vehicle.getPrice(value, "Minute");
-            console.log(cost[0]);
             object.Price = cost[0].price;
             
         }
