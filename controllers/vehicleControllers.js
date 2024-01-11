@@ -171,7 +171,6 @@ exports.getRelevantCars = async (req, res, next) => {
     console.log("Get relevant cars");
 
     const[cars, _] = await vehicle.getRelevantCars(request);
-    console.log(cars);
 
     for (i = 0; i < cars.length; i++) {
         let object = cars[i];

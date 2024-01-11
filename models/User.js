@@ -52,7 +52,7 @@ class User {
 						 Password = '${this.password}',  
 						 Date_of_birth = '${this.date}', 
 						 Phone_number = '${this.phoneNumber}',
-						 	 Full_Name = '${this.name}', 
+							Full_Name = '${this.name}', 
 							 License_id ='${this.licenseId}',
 							  Email = '${this.email}'
 						 WHERE Username = '${oldUsername}'`;
