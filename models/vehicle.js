@@ -68,8 +68,7 @@ class vehicle {
 
 		const filterCategories = [
 			"Type",
-			"Fuel_Type",
-			"Model",
+			"Fuel Type",
 			"Gearbox",
 			"Capacity",
 			"Color",
